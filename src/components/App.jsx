@@ -1,4 +1,11 @@
+import Modal from "./Modal/Modal";
+
 export const App = () => {
+
+  ontoggle = () => {
+    
+  };
+  
   return (
     <div
       style={{
@@ -10,7 +17,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Modal />
     </div>
   );
 };
