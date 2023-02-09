@@ -15,15 +15,22 @@ export default class Modal extends Component {
     if (evt.code === 'Escape') {
       this.props.onClose();
     }
-  };
+    };
+    
+    handleBackdropClick = event => {
+        if (event.currentTarget === event.target) {
+            this.props.onClose();
+        }
+    };
+
   render() {
     return createPortal(
-      <div class="overlay">
+      <div class="overlay" onClick={this.handleBackdropClick}>
         <div class="modal">
           <img src="" alt="" />
         </div>
       </div>,
-      modalRoot
+      modalRoot,
     );
   }
 }
