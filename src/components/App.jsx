@@ -1,10 +1,14 @@
+import { Component } from "react";
+// import { fetchPhotoApi } from "./Api/Api";
 
 
-export const App = () => {
+export class App  extends Component {
+  async componentDidMount() {
+    fetch()
+  }
   
-  
-
-  return (
+  render() {
+   return (
     <div
       style={{
         height: '100vh',
@@ -17,4 +21,6 @@ export const App = () => {
     >
         </div>
   );
+}
+ 
 };
