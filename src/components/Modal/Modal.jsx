@@ -1,13 +1,19 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
+import { Overlay, Modal } from './Modal.styled';
+import PropTypes from 'prop-types';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export default class Modal extends Component {
+  static defaultProps = {
+    largeImgURL: PropTypes.string.isRequired,
+  };
+
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }
-  componentDidUpdate() {
+  componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
   }
 
@@ -15,22 +21,22 @@ export default class Modal extends Component {
     if (evt.code === 'Escape') {
       this.props.onClose();
     }
-    };
-    
-    handleBackdropClick = event => {
-        if (event.currentTarget === event.target) {
-            this.props.onClose();
-        }
-    };
+  };
+
+  handleBackdropClick = event => {
+    if (event.currentTarget === event.target) {
+      this.props.onClose();
+    }
+  };
 
   render() {
     return createPortal(
-      <div class="overlay" onClick={this.handleBackdropClick}>
-        <div class="modal">
-          <img src="" alt="" />
-        </div>
-      </div>,
-      modalRoot,
+      <Overlay onClick={this.handleBackdropClick}>
+        <Modal>
+          <img src={this.props.largeImgURL} alt="" />
+        </Modal>
+      </Overlay>,
+      modalRoot
     );
   }
 }
