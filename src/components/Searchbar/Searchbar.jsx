@@ -25,7 +25,6 @@ const SearchBar = ({ onSubmit }) => {
           name="search"
           type="text"
           autocomplete="off"
-          
           placeholder="Search images and photos"
         />
       </SearchForm>
