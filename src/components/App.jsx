@@ -6,7 +6,6 @@ import ImageGallery from './ImageGallery';
 import Loader from './Loader';
 import SearchBar from './Searchbar';
 
-
 export class App extends Component {
   state = {
     images: [],
@@ -14,7 +13,7 @@ export class App extends Component {
     isLoading: false,
     page: 1,
     total: 0,
-    error:false,
+    error: false,
   };
   handleFormSubmit = searchQuery => {
     if (!searchQuery || searchQuery === this.state.searchQuery) {
@@ -26,7 +25,7 @@ export class App extends Component {
       images: [],
       page: 1,
       total: 0,
-        });
+    });
   };
 
   handleOnLoading = () => {
@@ -71,22 +70,13 @@ export class App extends Component {
   render() {
     const { images, page, total, isLoading } = this.state;
     return (
-      <AppWrp
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
+      <AppWrp>
         <SearchBar onSubmit={this.handleFormSubmit} />
         <ImageGallery images={images} />
         {!!images.length && page <= total && (
           <Button onClick={this.handleOnLoading} />
         )}
-        {isLoading && <Loader/>}
+        {isLoading && <Loader />}
       </AppWrp>
     );
   }
