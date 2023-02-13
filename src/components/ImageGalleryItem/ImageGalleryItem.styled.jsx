@@ -12,7 +12,8 @@ export const ImageGalleryItemImage = styled.img`
   object-fit: cover;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   :hover {
-    transform: scale(1.03);
+    box-shadow: 2px 3px 5px #c7fc07, -1px -3px 5px #0f70de;
+    transform: scale(1.05);
     cursor: zoom-in;
   }
 `;
