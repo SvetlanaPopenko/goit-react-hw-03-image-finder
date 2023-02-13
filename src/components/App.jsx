@@ -5,8 +5,23 @@ import Button from './Button';
 import ImageGallery from './ImageGallery';
 import Loader from './Loader';
 import SearchBar from './Searchbar';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
+  static defaultProps = {
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        tags: PropTypes.string.isRequired,
+        webformatURL: PropTypes.string.isRequired,
+        largeImageURL: PropTypes.string.isRequired,
+        total: PropTypes.number.isRequired,
+      }).isRequired
+    ),
+    searchQuery: PropTypes.string.isRequired,
+    page: PropTypes.number.isRequired,
+  };
+
   state = {
     images: [],
     searchQuery: '',
@@ -15,6 +30,7 @@ export class App extends Component {
     total: 0,
     error: false,
   };
+  
   handleFormSubmit = searchQuery => {
     if (!searchQuery || searchQuery === this.state.searchQuery) {
       return;
