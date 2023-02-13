@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { fetchApi } from './Api/Api';
+import { AppWrp } from './App.styled';
 import Button from './Button';
 import ImageGallery from './ImageGallery';
 import Loader from './Loader';
@@ -70,7 +71,7 @@ export class App extends Component {
   render() {
     const { images, page, total, isLoading } = this.state;
     return (
-      <div
+      <AppWrp
         style={{
           height: '100vh',
           display: 'flex',
@@ -86,7 +87,7 @@ export class App extends Component {
           <Button onClick={this.handleOnLoading} />
         )}
         {isLoading && <Loader/>}
-      </div>
+      </AppWrp>
     );
   }
 }
