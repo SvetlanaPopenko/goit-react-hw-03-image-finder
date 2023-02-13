@@ -9,5 +9,5 @@ export const Loading = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
+  background-color: #2813e8;
 `;
