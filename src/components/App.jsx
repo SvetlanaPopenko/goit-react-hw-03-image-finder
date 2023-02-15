@@ -30,7 +30,7 @@ export class App extends Component {
     total: 0,
     error: false,
   };
-  
+
   handleFormSubmit = searchQuery => {
     if (!searchQuery || searchQuery === this.state.searchQuery) {
       return;
@@ -41,6 +41,7 @@ export class App extends Component {
       images: [],
       page: 1,
       total: 0,
+      error:false,
     });
   };
 
